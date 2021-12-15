@@ -6,23 +6,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5
 import jwt
 
-class Snip(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    rawCode = db.Column(db.String(5000))
-    description = db.Column(db.String(5000))
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-
-    def __repr__(self):
-        return '<Snip {}>'.format(self.rawCode)
-
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-
-    snips = db.relationship('Snip', backref='author', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)

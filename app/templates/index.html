@@ -1,12 +1,5 @@
 {% extends 'base.html' %}
 
 {% block app_content %}
-{% if current_user.is_authenticated %}
-<h1>{{ current_user.name }} - Welcome to Snippet!</h1>
-{% else %}
-<h1>Welcome to Snippet!</h1>
-{% endif %}
-<p>The community for sharing Linux scripts and tweaks.</p>
-<hr>
-<h2>Explore Recent Snippets</h2>
+
 {% endblock %}

@@ -1,1 +1,1 @@
-FLASK_APP=snippet.py
+FLASK_APP=appname.py

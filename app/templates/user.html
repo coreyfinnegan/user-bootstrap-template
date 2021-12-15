@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<div class="page-header">
+  <h1>View Account Details<h1>
+</div>
+<div class="row">
+    <table>
+      <tr valign="top">
+        <td><img class="mr1" src="{{ user.avatar(128) }}"></img></td>
+        <td>
+          <p><b>Username : </b>{{ user.username }}</p>
+          <p><b>Full Name : </b>{{ user.name }}</p>
+          <p><b>Email : </b>{{ user.email }}</p>
+          <a class="btn btn-primary" href="{{ url_for('edit_user')}}">Edit account details</a>
+        </td>
+      </tr>
+    </table>
+</div>
+{% endblock %}

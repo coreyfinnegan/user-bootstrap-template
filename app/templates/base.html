@@ -1,5 +1,10 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/spacing.css') }}">
+{% endblock %}
+
 {% block title %}
     {% if title %}{{ title }} - App Name{% else %}Welcome to App Name{% endif %}
 {% endblock %}
@@ -25,6 +30,7 @@
                     <li><a href="{{ url_for('login') }}">Login</a></li>
                     <li><a href="{{ url_for('register')}}">Register</a></li>
                     {% else %}
+                    <li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% endif %}
                 </ul>
